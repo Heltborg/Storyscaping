@@ -5,8 +5,82 @@ Author: Malene Jonassen, Cathrine Kjeldahl, Freja Matthiesen og Sarah Heltborg
 Author URI: https://storyscaping.shstudio.dk
 Description: The Astra WordPress theme is based upon the original Astra Mother Theme in Wordpress. This Astra Child Theme is lightning-fast and higly customizable theme.
 Template: astra
-Version: 0.1
+Version: 0.2
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: astra
 **/
+
+/* 1) Animeret bevægelse: "left" kører mod venstre, "right" kører fra højre ind */
+@keyframes marquee-left  {
+  /* start: stå i normal position (x=0), men centrer vertikalt (-50%) */
+  from { transform: translate(0,   -50%); }
+  /* slut: flyt hele tekstbåndet -100% mod venstre (ud af synet) */
+  to   { transform: translate(-100%, -50%); }
+}
+
+@keyframes marquee-right {
+  /* start: stå lige udenfor til højre (x=100%), centrer vertikalt */
+  from { transform: translate(100%, -50%); }
+  /* slut: glid ind til normal position (x=0) */
+  to   { transform: translate(0,    -50%); }
+}
+
+
+/* 2) Selve "rammen" – herinde ruller teksten */
+.proj-marquee-css,
+.contact-marquee-css {
+  position: relative;   /* gør det muligt at placere ::before/::after inde i boksen */
+  overflow: hidden;     /* alt der ruller udenfor kanten bliver skjult */
+  width: 100%;          /* fylder hele bredden */
+  line-height: 1;       /* stram linjehøjde (undgår "hop") */
+}
+
+/* Skjul den almindelige heading-tekst (vi viser i stedet CSS-teksten)
+   - Godt for SEO/skærmlæsere, for teksten findes stadig i HTML */
+.proj-marquee-css .elementor-heading-title,
+.contact-marquee-css .elementor-heading-title {
+  text-indent: -9999px;  /* skub teksten langt væk, så den ikke ses */
+}
+
+
+/* 3) Fælles opsætning for de to tekst-bånd (::before og ::after)
+   - Tænk dem som to "lag" tekst, der kører forbi */
+.proj-marquee-css::before,
+.proj-marquee-css::after,
+.contact-marquee-css::before,
+.contact-marquee-css::after {
+  position: absolute;         /* fri placering inde i rammen */
+  top: 50%;                   /* læg dem midt på højden */
+  transform: translateY(-50%);/* fin-centrér dem præcis i højden */
+  white-space: nowrap;        /* teksten må ikke bryde linje (skal være i én linje) */
+  font-weight: 700;           /* gør teksten fed */
+}
+
+
+/* 4) Startposition + animation
+   - ::before: starter i venstre side og kører mod venstre (left)
+   - ::after: starter udenfor til højre og glider ind (right)
+   - --speed kan sættes på elementet i Elementor (Custom CSS), fx: --speed: 14s; */
+.proj-marquee-css::before,
+.contact-marquee-css::before {
+  transform: translate(0, -50%);
+  animation: marquee-left var(--speed, 18s) linear infinite; /* kør for evigt i samme fart */
+}
+
+.proj-marquee-css::after,
+.contact-marquee-css::after {
+  transform: translate(100%, -50%);
+  animation: marquee-right var(--speed, 18s) linear infinite;
+}
+
+
+/* 5) Variant 1: PROJEKTER
+   - content = selve teksten, gentaget mange gange med "•" imellem.
+   - --proj-color og --proj-size kan du overstyre pr. sektion, hvis du vil. */
+.proj-marquee-css::before,
+.proj-marquee-css::after {
+  content: "Projekter • Projekter • Projekter • Projekter • Projekter • Projekter • Projekter • Projekter • Projekter • Projekter • ";
+  color: var(--proj-color, #000080);                    /* standard = mørk blå */
+  font-size: var(--proj-size, clamp(28px, 5vw, 56px));  /* responsiv størrelse: min 28px, max 56px */
+}
