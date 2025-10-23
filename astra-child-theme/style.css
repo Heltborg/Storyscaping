@@ -83,19 +83,3 @@ Text Domain: astra
     " CONNECT • CREATE • CELEBRATE •"
     " CONNECT • CREATE • CELEBRATE •";
 }
-
-
-
-/* ------------------------ MENUPUNKTER ------------------------ */
-/* Hover på menupunkt */
-.main-header-menu .menu-item > .menu-link:hover { /* > sikrer mig hvis der kommer en dropdown menu senere hen */
-  color: #bd3001;
-  text-decoration: underline;
-}
-
-/* Effekt på aktivt menupunkt */
-.ast-builder-menu-1 .menu-item.current-menu-item > .menu-link,
-.ast-builder-menu-1 .menu-item.current_page_item > .menu-link {
-  color: #bd3001 !important;
-  text-decoration: underline !important;
-}
