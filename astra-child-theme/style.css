@@ -11,44 +11,44 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: astra
 **/
 
+/* === SLOGAN MARQUEE – FULDBREDDE, FARVE & LANGSOM === */
+
 /* --- ANIMATIONER --- */
 @keyframes marquee-left  {
   from { transform: translate(0, -50%); }
   to   { transform: translate(-100%, -50%); }
 }
-
 @keyframes marquee-right {
   from { transform: translate(100%, -50%); }
   to   { transform: translate(0, -50%); }
 }
 
-/* --- RAMMEN --- */
+/* --- RAMMEN / BÅNDET --- */
 .slogan-marquee-css {
   position: relative;
   overflow: hidden;
-  width: 100%;
-  line-height: 1;
   display: block;
-  padding: 14px 0;
-}
-/* --- FULDBREDDE BANNER --- */
-.slogan-marquee-css {
-  width: 100vw;                       /* fyld hele vinduesbredden */
-  margin-left: calc(50% - 50vw);      /* fjern Elementor’s side-padding */
-  background: #fffaf7;                /* valgfri baggrundsfarve – skift hvis du vil */
+  line-height: 1;
+  width: 100vw;                       /* fyld hele skærmen */
+  margin-left: calc(50% - 50vw);      /* fjern Elementor’s container-padding */
+  background: #fffaf7;                /* baggrundsfarve – skift hvis du vil */
   padding: 20px 0;                    /* højde på båndet */
-  text-transform: uppercase;          /* gør teksten store bogstaver (valgfrit) */
+  text-transform: uppercase;          /* store bogstaver */
   text-align: center;                 /* centrer fallback-teksten */
+
+  /* variabler: kan ændres her */
+  --slogan-color: #bd3001;            /* tekstfarve */
+  --slogan-size: clamp(28px, 5vw, 56px); /* responsiv tekststørrelse */
+  --speed: 40s;                       /* større tal = langsommere bevægelse */
 }
 
-
-/* Skjul den almindelige overskrift – den findes stadig for SEO/a11y */
+/* --- SKJUL HEADING-TITLEN I ELEMENTOR (SEO/tilgængelighed bevares) --- */
 .slogan-marquee-css .elementor-heading-title {
   text-indent: -9999px;
   white-space: nowrap;
 }
 
-/* --- TEKSTBÅND (to lag) --- */
+/* --- TEKSTBÅND (TO LAG) --- */
 .slogan-marquee-css::before,
 .slogan-marquee-css::after {
   position: absolute;
@@ -58,18 +58,18 @@ Text Domain: astra
   font-weight: 700;
   letter-spacing: 0.03em;
   will-change: transform;
-  color: var(--slogan-color, #bd3001); /* standardfarve */
-  font-size: var(--slogan-size, clamp(28px, 5vw, 56px)); /* responsiv størrelse */
+  color: var(--slogan-color);
+  font-size: var(--slogan-size);
 }
 
-/* --- ANIMATION (to lag for kontinuerlig rulning) --- */
+/* --- ANIMATION (TO LAG FOR KONTINUERLIG RULNING) --- */
 .slogan-marquee-css::before {
   transform: translate(0, -50%);
-  animation: marquee-left var(--speed, 30s) linear infinite;
+  animation: marquee-left var(--speed) linear infinite;
 }
 .slogan-marquee-css::after {
   transform: translate(100%, -50%);
-  animation: marquee-right var(--speed, 30s) linear infinite;
+  animation: marquee-right var(--speed) linear infinite;
 }
 
 /* --- SELVE TEKSTEN --- */
@@ -84,6 +84,8 @@ Text Domain: astra
     " CONNECT • CREATE • CELEBRATE •"
     " CONNECT • CREATE • CELEBRATE •"
     " CONNECT • CREATE • CELEBRATE •"
-    " CONNECT • CREATE • CELEBRATE •"
-          ;
+    " CONNECT • CREATE • CELEBRATE •";
 }
+
+
+
