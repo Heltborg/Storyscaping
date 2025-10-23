@@ -5,12 +5,11 @@ Author: Malene Jonassen, Cathrine Kjeldahl, Freja Matthiesen og Sarah Heltborg
 Author URI: https://storyscaping.shstudio.dk
 Description: The Astra WordPress theme is based upon the original Astra Mother Theme in Wordpress. This Astra Child Theme is lightning-fast and higly customizable theme.
 Template: astra
-Version: 0.5
+Version: 0.1
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: astra
 **/
-/* === SLOGAN MARQUEE – FULDBREDDE, FARVE & LANGSOM === */
 
 /* --- ANIMATIONER --- */
 @keyframes marquee-left  {
@@ -30,7 +29,6 @@ Text Domain: astra
   line-height: 1;
   width: 100vw;                       /* fyld hele skærmen */
   margin-left: calc(50% - 50vw);      /* fjern Elementor’s container-padding */
-  background: #fffaf7;                /* baggrundsfarve – skift hvis du vil */
   padding: 20px 0;                    /* højde på båndet */
   text-transform: uppercase;          /* store bogstaver */
   text-align: center;                 /* centrer fallback-teksten */
@@ -75,7 +73,7 @@ Text Domain: astra
 .slogan-marquee-css::before,
 .slogan-marquee-css::after {
   content:
-    " CONNECT • CREATE • CELEBRATE •"
+    " CONNECT • CREATE • CELEBRATE • CONNECT • CREATE • CELEBRATE • CONNECT • CREATE • CELEBRATE •"
     " CONNECT • CREATE • CELEBRATE •"
     " CONNECT • CREATE • CELEBRATE •"
     " CONNECT • CREATE • CELEBRATE •"
@@ -85,4 +83,3 @@ Text Domain: astra
     " CONNECT • CREATE • CELEBRATE •"
     " CONNECT • CREATE • CELEBRATE •";
 }
-
