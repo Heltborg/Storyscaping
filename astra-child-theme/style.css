@@ -116,84 +116,64 @@ Text Domain: astra
   100% { transform: translate(-50%, 0) rotate(45deg); }
 }
 
-/* ------------------- SCROLL SNAPPING ------------------- */
-html {
+/* ==========================================================
+   SCROLL SNAP KONTAINER (så header og footer bliver synlige)
+   ========================================================== */
+.snap-container {
+  height: 100vh;
+  overflow-y: scroll;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   overscroll-behavior-y: none;
+  position: relative;
+  z-index: 1;
 }
 
-/* Hver sektion fylder hele skærmen */
+/* Hver sektion inde i storytelling-området */
+.snap-container > section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 !important;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Sørg for at header og footer altid vises ovenpå */
+.site-header,
+.site-footer {
+  position: relative;
+  z-index: 50;
+}
+
+/* Typisk styling til sektioner */
 .hero-scroll,
 .connect-sektion,
 .create-sektion,
 .celebrate-sektion {
-  min-height: 100svh;
-  min-height: 100vh;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  margin: 0 !important;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  color: #fff;
+  text-align: center;
 }
 
-/* Fjern margin */
-.hero-scroll > *:first-child,
-.connect-sektion > *:first-child,
-.create-sektion > *:first-child,
-.celebrate-sektion > *:first-child {
-  margin-top: 0;
-}
-.hero-scroll > *:last-child,
-.connect-sektion > *:last-child,
-.create-sektion > *:last-child,
-.celebrate-sektion > *:last-child {
-  margin-bottom: 0;
-}
+/* Baggrundsfarver (kan skiftes til billeder om ønsket) */
+.hero-scroll    { background: #242424; }
+.connect-sektion { background: linear-gradient(180deg, #f4a261, #e76f51); }
+.create-sektion  { background: linear-gradient(180deg, #84a98c, #52796f); }
+.celebrate-sektion { background: linear-gradient(180deg, #fcbf49, #f77f00); }
 
-/* ------------------- STICKY NAVBAR ------------------- */
-.main-header-bar {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(6px);
-  transition: background-color 0.3s ease;
+/* Tekststørrelser */
+h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
 }
-
-/* Mørkere navbar ved scroll (kræver lille JS – se nedenfor) */
-.main-header-bar.scrolled {
-  background-color: rgba(0, 0, 0, 0.85);
-}
-
-/* ------------------- PARALLAX BAGGRUNDE ------------------- */
-.parallax {
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* Eksempler – udskift URL’er med dine egne billeder */
-.hero-scroll.parallax {
-  background-image: url('https://din-side.dk/wp-content/uploads/hero-bg.jpg');
-}
-.connect-sektion.parallax {
-  background-image: url('https://din-side.dk/wp-content/uploads/connect-bg.jpg');
-}
-.create-sektion.parallax {
-  background-image: url('https://din-side.dk/wp-content/uploads/create-bg.jpg');
-}
-.celebrate-sektion.parallax {
-  background-image: url('https://din-side.dk/wp-content/uploads/celebrate-bg.jpg');
-}
-
-/* Fallback til iOS, hvor background-attachment: fixed ikke virker */
-@supports (-webkit-overflow-scrolling: touch) {
-  .parallax {
-    background-attachment: scroll;
-    background-position: center center;
-  }
+p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
