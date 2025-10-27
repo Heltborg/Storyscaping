@@ -27,16 +27,15 @@ Text Domain: astra
   overflow: hidden;
   display: block;
   line-height: 1;
-  width: 100vw;                       /* fyld hele skærmen */
-  margin-left: calc(50% - 50vw);      /* fjern Elementor’s container-padding */
-  padding: 20px 0;                    /* højde på båndet */
-  text-transform: uppercase;          /* store bogstaver */
-  text-align: center;                 /* centrer fallback-teksten */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding: 20px 0;
+  text-transform: uppercase;
+  text-align: center;
 
-  /* variabler: kan ændres her */
-  --slogan-color: #bd3001;            /* tekstfarve */
-  --slogan-size: clamp(28px, 5vw, 56px); /* responsiv tekststørrelse */
-  --speed: 40s;                       /* større tal = langsommere bevægelse */
+  --slogan-color: #bd3001;
+  --slogan-size: clamp(28px, 5vw, 56px);
+  --speed: 40s;
 }
 
 /* --- SKJUL HEADING-TITLEN I ELEMENTOR (SEO/tilgængelighed bevares) --- */
@@ -84,88 +83,102 @@ Text Domain: astra
     " CONNECT • CREATE • CELEBRATE •";
 }
 
-
 /*----------------------- Styling af Hero pilen -----------------------*/
-
-/* Hero-sektionen gøres "relative",
-   så vi kan placere pilen inde i den */
 .hero-scroll {
   position: relative;
 }
-
-/* Den nederste pil (chevron) */
 .hero-scroll::after {
-  content: "";                                 /* laver et usynligt element, vi kan style */
-  position: absolute;                          /* placerer pilen frit ovenpå hero-sektionen */
-  left: 50%;                                   /* centrerer pilen vandret */
-  top: calc(100% - 12vh);                      /* placerer pilen tæt på bunden */
-  width: 32px;                                 /* pilens bredde */
-  height: 32px;                                /* pilens højde */
-  transform: translateX(-50%) rotate(45deg);   /* flytter pilen på plads og drejer den 45 grader */
-  border-right: 6px solid #ffffff;             /* højre kant = én streg af pilen (hvid, 6px tyk) */
-  border-bottom: 6px solid #ffffff;            /* nederste kant = anden streg af pilen */
-  z-index: 5;                                  /* sørger for pilen altid ligger øverst */
-  pointer-events: none;                        /* pilen kan ikke klikkes */
-  animation: scroll-bounce 1.6s ease-in-out infinite; /* tilføjer hoppe-animation i et loop */
-}
-
-/* Den øverste ekstra pil */
-.hero-scroll::before {
-  content: "";                                 /* igen et tomt element */
+  content: "";
   position: absolute;
-  left: 50%;                                   /* samme centrering som den anden pil */
-  top: calc(100% - 14vh);                      /* lidt højere op end den nederste pil */
+  left: 50%;
+  top: calc(100% - 12vh);
   width: 32px;
   height: 32px;
-  transform: translateX(-50%) rotate(45deg);   /* samme rotation som nedenfor */
-  border-right: 6px solid #ffffff;             /* højre streg */
-  border-bottom: 6px solid #ffffff;            /* nederste streg */
-  opacity: 0.6;                                /* gør denne pil mere gennemsigtig */
-  animation: scroll-bounce 1.6s ease-in-out infinite; /* samme hoppe-animation */
-  animation-delay: 0.15s;                      /* starter lidt forskudt for at give en "flow-effekt" */
+  transform: translateX(-50%) rotate(45deg);
+  border-right: 6px solid #ffffff;
+  border-bottom: 6px solid #ffffff;
+  z-index: 5;
+  pointer-events: none;
+  animation: scroll-bounce 1.6s ease-in-out infinite;
 }
-
-/* Selve animationen (keyframes)
-   Pilen bevæger sig lidt ned og op igen */
+.hero-scroll::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: calc(100% - 14vh);
+  width: 32px;
+  height: 32px;
+  transform: translateX(-50%) rotate(45deg);
+  border-right: 6px solid #ffffff;
+  border-bottom: 6px solid #ffffff;
+  opacity: 0.6;
+  animation: scroll-bounce 1.6s ease-in-out infinite;
+  animation-delay: 0.15s;
+}
 @keyframes scroll-bounce {
-  0%   { transform: translate(-50%, 0) rotate(45deg); }   /* pilen starter i neutral position */
-  50%  { transform: translate(-50%, 8px) rotate(45deg); } /* pilen flyttes 8px ned = hop */
-  100% { transform: translate(-50%, 0) rotate(45deg); }   /* pilen hopper tilbage til start */
+  0%   { transform: translate(-50%, 0) rotate(45deg); }
+  50%  { transform: translate(-50%, 8px) rotate(45deg); }
+  100% { transform: translate(-50%, 0) rotate(45deg); }
 }
 
-/* ---- Scroll snapping for hele siden ---- */
-html {
+/* ==========================================================
+   SCROLL SNAP KONTAINER (så header og footer bliver synlige)
+   ========================================================== */
+.snap-container {
+  height: 100vh;
+  overflow-y: scroll;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
-  overscroll-behavior-y: none; /* forhindrer "bounce" på Mac */
+  overscroll-behavior-y: none;
+  position: relative;
+  z-index: 1;
 }
 
-/* ---- Hver sektion fylder hele skærmen ---- */
+/* Hver sektion inde i storytelling-området */
+.snap-container > section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 !important;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Sørg for at header og footer altid vises ovenpå */
+.site-header,
+.site-footer {
+  position: relative;
+  z-index: 50;
+}
+
+/* Typisk styling til sektioner */
 .hero-scroll,
 .connect-sektion,
 .create-sektion,
 .celebrate-sektion {
-  min-height: 100svh;   /* moderne, tilpasser mobilens UI */
-  min-height: 100vh;    /* fallback til ældre browsere */
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  margin: 0 !important;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* centrerer indhold vertikalt */
+  color: #fff;
+  text-align: center;
 }
 
-/* ---- Fjern margin oven/under sektionerne ---- */
-.hero-scroll > *:first-child,
-.connect-sektion > *:first-child,
-.create-sektion > *:first-child,
-.celebrate-sektion > *:first-child {
-  margin-top: 0;
+/* Baggrundsfarver (kan skiftes til billeder om ønsket) */
+.hero-scroll    { background: #242424; }
+.connect-sektion { background: linear-gradient(180deg, #f4a261, #e76f51); }
+.create-sektion  { background: linear-gradient(180deg, #84a98c, #52796f); }
+.celebrate-sektion { background: linear-gradient(180deg, #fcbf49, #f77f00); }
+
+/* Tekststørrelser */
+h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
 }
-.hero-scroll > *:last-child,
-.connect-sektion > *:last-child,
-.create-sektion > *:last-child,
-.celebrate-sektion > *:last-child {
-  margin-bottom: 0;
+p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
