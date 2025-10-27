@@ -119,8 +119,8 @@ Text Domain: astra
 
 div.wpforms-container-full .wpforms-confirmation-container-full,
 div[submit-success] > .wpforms-confirmation-container-full:not(.wpforms-redirection-message) {
-    background: var(--slogan-color) !important; /* Din nye baggrundsfarve */
-    border: 1px solid var(--slogan-color); /* Kan du også ændre, hvis du vil */
+    background: #BD3001 !important;
+    border: 1px solid #BD3001;
     box-sizing: border-box;
-    color: #ffffff; /* Tekstfarve, valgfri */
+    color: #ffffff;
 }
