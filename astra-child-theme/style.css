@@ -115,3 +115,12 @@ Text Domain: astra
   50%  { transform: translate(-50%, 8px) rotate(45deg); }
   100% { transform: translate(-50%, 0) rotate(45deg); }
 }
+
+
+div.wpforms-container-full .wpforms-confirmation-container-full,
+div[submit-success] > .wpforms-confirmation-container-full:not(.wpforms-redirection-message) {
+    background: var(--slogan-color) !important; /* Din nye baggrundsfarve */
+    border: 1px solid var(--slogan-color); /* Kan du også ændre, hvis du vil */
+    box-sizing: border-box;
+    color: #ffffff; /* Tekstfarve, valgfri */
+}
