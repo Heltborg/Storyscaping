@@ -5,7 +5,7 @@ Author: Malene Jonassen, Cathrine Kjeldahl, Freja Matthiesen og Sarah Heltborg
 Author URI: https://storyscaping.shstudio.dk
 Description: The Astra WordPress theme is based upon the original Astra Mother Theme in Wordpress. This Astra Child Theme is lightning-fast and higly customizable theme.
 Template: astra
-Version: 0.1
+Version: 0.2
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: astra
@@ -82,4 +82,90 @@ Text Domain: astra
     " CONNECT • CREATE • CELEBRATE •"
     " CONNECT • CREATE • CELEBRATE •"
     " CONNECT • CREATE • CELEBRATE •";
+}
+
+
+/*----------------------- Styling af Hero pilen -----------------------*/
+
+/* Hero-sektionen gøres "relative",
+   så vi kan placere pilen inde i den */
+.hero-scroll {
+  position: relative;
+}
+
+/* Den nederste pil (chevron) */
+.hero-scroll::after {
+  content: "";                                 /* laver et usynligt element, vi kan style */
+  position: absolute;                          /* placerer pilen frit ovenpå hero-sektionen */
+  left: 50%;                                   /* centrerer pilen vandret */
+  top: calc(100% - 12vh);                      /* placerer pilen tæt på bunden */
+  width: 32px;                                 /* pilens bredde */
+  height: 32px;                                /* pilens højde */
+  transform: translateX(-50%) rotate(45deg);   /* flytter pilen på plads og drejer den 45 grader */
+  border-right: 6px solid #ffffff;             /* højre kant = én streg af pilen (hvid, 6px tyk) */
+  border-bottom: 6px solid #ffffff;            /* nederste kant = anden streg af pilen */
+  z-index: 5;                                  /* sørger for pilen altid ligger øverst */
+  pointer-events: none;                        /* pilen kan ikke klikkes */
+  animation: scroll-bounce 1.6s ease-in-out infinite; /* tilføjer hoppe-animation i et loop */
+}
+
+/* Den øverste ekstra pil */
+.hero-scroll::before {
+  content: "";                                 /* igen et tomt element */
+  position: absolute;
+  left: 50%;                                   /* samme centrering som den anden pil */
+  top: calc(100% - 14vh);                      /* lidt højere op end den nederste pil */
+  width: 32px;
+  height: 32px;
+  transform: translateX(-50%) rotate(45deg);   /* samme rotation som nedenfor */
+  border-right: 6px solid #ffffff;             /* højre streg */
+  border-bottom: 6px solid #ffffff;            /* nederste streg */
+  opacity: 0.6;                                /* gør denne pil mere gennemsigtig */
+  animation: scroll-bounce 1.6s ease-in-out infinite; /* samme hoppe-animation */
+  animation-delay: 0.15s;                      /* starter lidt forskudt for at give en "flow-effekt" */
+}
+
+/* Selve animationen (keyframes)
+   Pilen bevæger sig lidt ned og op igen */
+@keyframes scroll-bounce {
+  0%   { transform: translate(-50%, 0) rotate(45deg); }   /* pilen starter i neutral position */
+  50%  { transform: translate(-50%, 8px) rotate(45deg); } /* pilen flyttes 8px ned = hop */
+  100% { transform: translate(-50%, 0) rotate(45deg); }   /* pilen hopper tilbage til start */
+}
+
+/* ---- Scroll snapping for hele siden ---- */
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  overscroll-behavior-y: none; /* forhindrer "bounce" på Mac */
+}
+
+/* ---- Hver sektion fylder hele skærmen ---- */
+.hero-scroll,
+.connect-sektion,
+.create-sektion,
+.celebrate-sektion {
+  min-height: 100svh;   /* moderne, tilpasser mobilens UI */
+  min-height: 100vh;    /* fallback til ældre browsere */
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  margin: 0 !important;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centrerer indhold vertikalt */
+}
+
+/* ---- Fjern margin oven/under sektionerne ---- */
+.hero-scroll > *:first-child,
+.connect-sektion > *:first-child,
+.create-sektion > *:first-child,
+.celebrate-sektion > *:first-child {
+  margin-top: 0;
+}
+.hero-scroll > *:last-child,
+.connect-sektion > *:last-child,
+.create-sektion > *:last-child,
+.celebrate-sektion > *:last-child {
+  margin-bottom: 0;
 }
