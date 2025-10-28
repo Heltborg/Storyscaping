@@ -1,5 +1,5 @@
 jQuery(document).ready(function($){
-    var $box = $('#sdb-box');
+    var $box = $('.sdb-box');
 
     // Sørg for, at boksen starter skjult
     $box.addClass('slide-top');
