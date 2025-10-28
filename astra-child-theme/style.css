@@ -3,16 +3,16 @@ Theme Name: Astra Child Theme
 Theme URI: https://wpastra.com/
 Author: Malene Jonassen, Cathrine Kjeldahl, Freja Matthiesen og Sarah Heltborg
 Author URI: https://storyscaping.shstudio.dk
-Description: The Astra WordPress theme is based upon the original Astra Mother Theme in Wordpress. This Astra Child Theme is lightning-fast and higly customizable theme.
+Description: The Astra WordPress theme is based upon the original Astra Mother Theme in Wordpress. This Astra Child Theme is lightning-fast and highly customizable theme.
 Template: astra
-Version: 0.2
+Version: 0.5
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: astra
 **/
 
-/* --- ANIMATIONER --- */
-@keyframes marquee-left  {
+/* ------------------- ANIMATIONER ------------------- */
+@keyframes marquee-left {
   from { transform: translate(0, -50%); }
   to   { transform: translate(-100%, -50%); }
 }
@@ -21,7 +21,7 @@ Text Domain: astra
   to   { transform: translate(0, -50%); }
 }
 
-/* --- RAMMEN / BÅNDET --- */
+/* ------------------- RAMMEN / BÅNDET ------------------- */
 .slogan-marquee-css {
   position: relative;
   overflow: hidden;
@@ -38,13 +38,11 @@ Text Domain: astra
   --speed: 40s;
 }
 
-/* --- SKJUL HEADING-TITLEN I ELEMENTOR (SEO/tilgængelighed bevares) --- */
 .slogan-marquee-css .elementor-heading-title {
   text-indent: -9999px;
   white-space: nowrap;
 }
 
-/* --- TEKSTBÅND (TO LAG) --- */
 .slogan-marquee-css::before,
 .slogan-marquee-css::after {
   position: absolute;
@@ -58,7 +56,6 @@ Text Domain: astra
   font-size: var(--slogan-size);
 }
 
-/* --- ANIMATION (TO LAG FOR KONTINUERLIG RULNING) --- */
 .slogan-marquee-css::before {
   transform: translate(0, -50%);
   animation: marquee-left var(--speed) linear infinite;
@@ -68,7 +65,6 @@ Text Domain: astra
   animation: marquee-right var(--speed) linear infinite;
 }
 
-/* --- SELVE TEKSTEN --- */
 .slogan-marquee-css::before,
 .slogan-marquee-css::after {
   content:
@@ -76,17 +72,14 @@ Text Domain: astra
     " CONNECT • CREATE • CELEBRATE •"
     " CONNECT • CREATE • CELEBRATE •"
     " CONNECT • CREATE • CELEBRATE •"
-    " CONNECT • CREATE • CELEBRATE •"
-    " CONNECT • CREATE • CELEBRATE •"
-    " CONNECT • CREATE • CELEBRATE •"
-    " CONNECT • CREATE • CELEBRATE •"
     " CONNECT • CREATE • CELEBRATE •";
 }
 
-/*----------------------- Styling af Hero pilen -----------------------*/
+/* ------------------- HERO PILEN ------------------- */
 .hero-scroll {
   position: relative;
 }
+
 .hero-scroll::after {
   content: "";
   position: absolute;
@@ -121,64 +114,11 @@ Text Domain: astra
   100% { transform: translate(-50%, 0) rotate(45deg); }
 }
 
-/* ==========================================================
-   SCROLL SNAP KONTAINER (så header og footer bliver synlige)
-   ========================================================== */
-.snap-container {
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-  overscroll-behavior-y: none;
-  position: relative;
-  z-index: 1;
-}
-
-/* Hver sektion inde i storytelling-området */
-.snap-container > section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0 !important;
-  padding: 0;
-  position: relative;
-  z-index: 1;
-}
-
-/* Sørg for at header og footer altid vises ovenpå */
-.site-header,
-.site-footer {
-  position: relative;
-  z-index: 50;
-}
-
-/* Typisk styling til sektioner */
-.hero-scroll,
-.connect-sektion,
-.create-sektion,
-.celebrate-sektion {
-  color: #fff;
-  text-align: center;
-}
-
-/* Baggrundsfarver (kan skiftes til billeder om ønsket) */
-.hero-scroll    { background: #242424; }
-.connect-sektion { background: linear-gradient(180deg, #f4a261, #e76f51); }
-.create-sektion  { background: linear-gradient(180deg, #84a98c, #52796f); }
-.celebrate-sektion { background: linear-gradient(180deg, #fcbf49, #f77f00); }
-
-/* Tekststørrelser */
-h1 {
-  font-size: clamp(2rem, 5vw, 4rem);
-  margin-bottom: 1rem;
-  letter-spacing: 2px;
-}
-p {
-  font-size: 1.2rem;
-  max-width: 600px;
-  margin: 0 auto;
+div.wpforms-container-full .wpforms-confirmation-container-full,
+div[submit-success] > .wpforms-confirmation-container-full:not(.wpforms-redirection-message) {
+    background: #F4F2EA !important;
+    border: 2px solid #BD3001 !important;
+    box-sizing: border-box;
+  border-radius: 15px;
+    color: #ffffff;
 }
