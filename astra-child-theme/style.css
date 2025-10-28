@@ -5,7 +5,7 @@ Author: Malene Jonassen, Cathrine Kjeldahl, Freja Matthiesen og Sarah Heltborg
 Author URI: https://storyscaping.shstudio.dk
 Description: The Astra WordPress theme is based upon the original Astra Mother Theme in Wordpress. This Astra Child Theme is lightning-fast and highly customizable theme.
 Template: astra
-Version: 0.3
+Version: 0.5
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: astra
@@ -116,11 +116,11 @@ Text Domain: astra
   100% { transform: translate(-50%, 0) rotate(45deg); }
 }
 
-
 div.wpforms-container-full .wpforms-confirmation-container-full,
 div[submit-success] > .wpforms-confirmation-container-full:not(.wpforms-redirection-message) {
-    background: #BD3001 !important;
-    border: 1px solid #BD3001;
+    background: #F4F2EA !important;
+    border: 2px solid #BD3001 !important;
     box-sizing: border-box;
+  border-radius: 15px;
     color: #ffffff;
 }
