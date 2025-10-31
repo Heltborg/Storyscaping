@@ -16,6 +16,6 @@ jQuery(document).ready(function($) {
 
     // Knapfunktion – sender brugeren videre til dit link
     $('#bellis-button').on('click', function() {
-        window.location.href = 'https://storyscaping.shstudio.dk';
+        window.location.href = 'https://storyscaping.shstudio.dk/elementor-615/home/';
     });
 });
