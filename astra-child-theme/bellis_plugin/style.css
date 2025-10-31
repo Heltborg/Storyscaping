@@ -37,7 +37,7 @@
 
 /* Billede */
 .bellis-box img {
-    max-width: 100%;
+    max-width: 60% !important;
     height: auto;
     margin: 10px 0;
 }
