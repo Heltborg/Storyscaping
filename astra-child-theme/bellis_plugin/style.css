@@ -28,11 +28,8 @@
     margin-top: 0;
     color: #BD3001;
     font-family: inherit;
-    font-size: 85% !important;
-}
-
-.h2 {
-    font-size: 85% !important;
+    font-size: 140% !important;
+  font-weight: bold;
 }
 
 /* Billede */
@@ -47,6 +44,7 @@
     margin: 10px 0;
     color: #BD3001;
     font-family: inherit;
+  font-size: 90% !important;
 }
 
 /* Knap */
