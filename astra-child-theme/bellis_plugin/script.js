@@ -14,8 +14,8 @@ jQuery(document).ready(function($) {
         $box.removeClass('slide-down').addClass('slide-top');
     });
 
-    // Knapfunktion
+    // Knapfunktion – sender brugeren videre til dit link
     $('#bellis-button').on('click', function() {
-        alert('Knap trykket!');
+        window.location.href = 'https://storyscaping.shstudio.dk';
     });
 });

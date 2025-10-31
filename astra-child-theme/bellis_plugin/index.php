@@ -34,7 +34,7 @@ function bellis_popup_box() {
     $content .= '      <img src="' . plugin_dir_url(__FILE__) . 'img/bellis_plugin_billede.png" alt="Bellis billede">';
     $content .= '      <p>Fællesskab starter med et hej og en kop kaffe. Hos Bellis mødes mennesker, idéer og grin i øjenhøjde. Klik dig ind, og mærk stemningen, hvor forbindelser opstår.</p>';
     $content .= '      <div class="button-holder">';
-    $content .= '          <button id="bellis-button">Oplev Fællesskabet</button>';
+    $content .= '          <a href="https://storyscaping.shstudio.dk" target="_blank" class="bellis-button-link"> <button id="bellis-button">Oplev Fællesskabet</button> </a>';
     $content .= '      </div>';
     $content .= '  </div>';
     $content .= '</div>';
