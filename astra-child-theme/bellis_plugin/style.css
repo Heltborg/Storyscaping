@@ -28,7 +28,11 @@
     margin-top: 0;
     color: #BD3001;
     font-family: inherit;
-    font-size: 85%;
+    font-size: 85% !important;
+}
+
+.h2 {
+    font-size: 85% !important;
 }
 
 /* Billede */
