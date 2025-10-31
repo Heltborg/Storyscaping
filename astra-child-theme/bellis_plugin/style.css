@@ -28,12 +28,10 @@
     margin-top: 0;
     color: #BD3001;
     font-family: inherit;
-    font-size: 85% !important;
+    font-size: 140% !important;
+    font-weight: bold;
 }
 
-.h2 {
-    font-size: 85% !important;
-}
 
 /* Billede */
 .bellis-box img {
@@ -47,6 +45,7 @@
     margin: 10px 0;
     color: #BD3001;
     font-family: inherit;
+    font-size: 80% !important;
 }
 
 /* Knap */
