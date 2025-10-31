@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {
     var $box = $('#bellis-box');
 
-    // Sørg for, at boksen starter skjult
+    // Sørger for, at boksen starter skjult
     $box.addClass('slide-top');
 
     // Vent 2 sekunder før den glider ned

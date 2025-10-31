@@ -1,4 +1,4 @@
-/* Containeren centrerer boksen */
+/* Containeren som også centrer boksen */
 #bellis-container {
     position: fixed;
     top: 10%;
@@ -10,7 +10,7 @@
     pointer-events: none;
 }
 
-/* Selve boksen */
+/* boksen */
 .bellis-box {
     background: #F4F2EA;
     border: 1px solid #BD3001;

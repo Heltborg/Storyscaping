@@ -13,19 +13,19 @@
     exit; // Stop direkte adgang
 }
 
-// Tilføj CSS
+// Tilføjer CSS
 function bellis_enqueue_styles() {
     wp_enqueue_style('bellis-style', plugin_dir_url(__FILE__) . 'style.css');
 }
 add_action('wp_enqueue_scripts', 'bellis_enqueue_styles');
 
-// Tilføj JS
+// Tilføjer JS
 function bellis_enqueue_scripts() {
     wp_enqueue_script('bellis-script', plugin_dir_url(__FILE__) . 'script.js', array('jquery'), null, true);
 }
 add_action('wp_enqueue_scripts', 'bellis_enqueue_scripts');
 
-// Shortcode: [bellis_popup]
+// Shortcode: [bellis_popup] - til indsttelse i WP
 function bellis_popup_box() {
     $content  = '<div id="bellis-container">';
     $content .= '  <div class="bellis-box slide-top" id="bellis-box">';
