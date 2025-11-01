@@ -122,3 +122,11 @@ div[submit-success] > .wpforms-confirmation-container-full:not(.wpforms-redirect
   border-radius: 15px;
     color: #ffffff;
 }
+
+/* ------------------- form - på bellis anbefaler------------------- */
+
+#wpforms-submit-66 {
+  background-color: #BD3001;
+  color: #F4F2EA;
+}
+
