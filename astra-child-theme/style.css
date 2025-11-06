@@ -16,26 +16,19 @@ Text Domain: astra
   from { transform: translate(0, -50%); }
   to   { transform: translate(-100%, -50%); }
 }
-@keyframes marquee-right {
-  from { transform: translate(100%, -50%); }
-  to   { transform: translate(0, -50%); }
-}
 
 /* ------------------- RAMMEN / BÅNDET ------------------- */
 .slogan-marquee-css {
   position: relative;
   overflow: hidden;
   display: block;
-  line-height: 1;
   width: 100vw;
-  margin-left: calc(50% - 50vw);
   padding: 20px 0;
-  text-transform: uppercase;
-  text-align: center;
+ 
 
   --slogan-color: #bd3001;
   --slogan-size: clamp(28px, 5vw, 56px);
-  --speed: 40s;
+  --speed: 60s;
 }
 
 .slogan-marquee-css .elementor-heading-title {
@@ -47,32 +40,26 @@ Text Domain: astra
 .slogan-marquee-css::after {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
   white-space: nowrap;
   font-weight: 700;
   letter-spacing: 0.03em;
   will-change: transform;
   color: var(--slogan-color);
   font-size: var(--slogan-size);
-}
-
-.slogan-marquee-css::before {
-  transform: translate(0, -50%);
-  animation: marquee-left var(--speed) linear infinite;
-}
-.slogan-marquee-css::after {
-  transform: translate(100%, -50%);
-  animation: marquee-right var(--speed) linear infinite;
-}
-
-.slogan-marquee-css::before,
-.slogan-marquee-css::after {
-  content:
+   content:
     " CONNECT • CREATE • CELEBRATE • CONNECT • CREATE • CELEBRATE • CONNECT • CREATE • CELEBRATE •"
     " CONNECT • CREATE • CELEBRATE •"
     " CONNECT • CREATE • CELEBRATE •"
     " CONNECT • CREATE • CELEBRATE •"
     " CONNECT • CREATE • CELEBRATE •";
+}
+
+.slogan-marquee-css::before {
+  animation: marquee-left var(--speed) linear infinite;
+}
+.slogan-marquee-css::after {
+  transform: translate(100%, -50%);
+ 
 }
 
 /* ------------------- HERO PILEN ------------------- */
