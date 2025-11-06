@@ -101,19 +101,17 @@ Text Domain: astra
   100% { transform: translate(-50%, 0) rotate(45deg); }
 }
 
-div.wpforms-container-full .wpforms-confirmation-container-full,
-div[submit-success] > .wpforms-confirmation-container-full:not(.wpforms-redirection-message) {
-    background: #F4F2EA !important;
-    border: 2px solid #BD3001 !important;
-    box-sizing: border-box;
-  border-radius: 15px;
-    color: #ffffff;
-}
-
 /* ------------------- form - på bellis anbefaler------------------- */
 
 #wpforms-submit-66 {
   background-color: #BD3001;
   color: #F4F2EA;
 }
-
+div.wpforms-container-full .wpforms-confirmation-container-full,
+div[submit-success] > .wpforms-confirmation-container-full:not(.wpforms-redirection-message) {
+    background: #F4F2EA !important;
+    border: 2px solid #BD3001 !important;
+    box-sizing: border-box;
+    border-radius: 15px;
+    color: #ffffff;
+}
